@@ -1,0 +1,16 @@
+{
+  "name": "name-it-right",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page for the free Brand Name Worksheet (Lowell D. Klassen / Profuzion Studio)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
