@@ -1,0 +1,75 @@
+active Lowell-Klassen-Price-Carousel.ai
+rasters 17
+placed 0
+groups 18
+paths 194
+raster 0 3304,-2834,3472,-2932 w168 h98 name 
+raster 1 3304,-2834,3472,-2932 w168 h98 name 
+raster 2 2064,-2834,2232,-2932 w168 h98 name 
+raster 3 2064,-2834,2232,-2932 w168 h98 name 
+raster 4 824,-2834,992,-2932 w168 h98 name 
+raster 5 824,-2834,992,-2932 w168 h98 name 
+raster 6 3304,-1324,3472,-1422 w168 h98 name 
+raster 7 3304,-1324,3472,-1422 w168 h98 name 
+raster 8 2064,-1324,2232,-1422 w168 h98 name 
+raster 9 2064,-1324,2232,-1422 w168 h98 name 
+raster 10 824,-1324,992,-1422 w168 h98 name 
+raster 11 824,-1324,992,-1422 w168 h98 name 
+raster 12 3304,186,3472,88 w168 h98 name 
+raster 13 3304,186,3472,88 w168 h98 name 
+raster 14 2064,186,2232,88 w168 h98 name 
+raster 15 2064,186,2232,88 w168 h98 name 
+raster 16 824,186,992,88 w168 h98 name 
+text /9 2578,-2871,2592,-2889 w14 h18
+text 9 2568,-2871,2576,-2889 w8 h18
+text PRICE 2576,-2123,2988,-2299 w412 h176
+text Comment 2576,-2058,2693,-2089 w117 h32
+text reads to a customer? 2576,-1953,3029,-2009 w453 h56
+text Not sure how your offer 2576,-1903,3086,-1959 w510 h56
+text /9 1338,-2871,1352,-2889 w14 h18
+text 8 1328,-2871,1336,-2889 w8 h18
+text Save this 1336,-2035,1447,-2069 w111 h34
+text your offer lands. 1336,-1944,1734,-2008 w399 h64
+text and your plan shape how 1336,-1888,1957,-1952 w621 h64
+text /9 97,-2871,111,-2889 w14 h18
+text 7 88,-2871,96,-2889 w8 h18
+text costs you the next one. 96,-2021,384,-2055 w288 h34
+text keeps the sale. 96,-1888,461,-1952 w365 h64
+text  about your price 379,-1832,798,-1896 w419 h64
+text open 254,-1832,380,-1896 w126 h64
+text Being  96,-1832,254,-1896 w158 h64
+text /9 2578,-1361,2592,-1379 w14 h18
+text 6 2568,-1361,2576,-1379 w8 h18
+text than a discount. 2576,-434,2972,-498 w396 h64
+text  people can picture 2778,-322,3251,-386 w473 h64
+text bonus 2625,-322,2778,-386 w154 h64
+text A  2576,-322,2626,-386 w50 h64
+text /9 1338,-1361,1351,-1379 w14 h18
+text 5 1328,-1361,1336,-1379 w8 h18
+text  clear options 1606,-322,1938,-386 w332 h64
+text three 1474,-322,1607,-386 w133 h64
+text Offer  1336,-322,1475,-386 w139 h64
+text /9 98,-1361,112,-1379 w14 h18
+text 4 88,-1361,96,-1379 w8 h18
+text next to yours. 96,-378,432,-442 w336 h64
+text  price 579,-322,717,-386 w137 h64
+text original 393,-322,580,-386 w187 h64
+text Show a real  96,-322,394,-386 w298 h64
+text /9 2578,149,2592,131 w14 h18
+text 3 2568,149,2576,131 w8 h18
+text . 3059,1076,3072,1012 w13 h64
+text daily cost 2826,1076,3060,1012 w234 h64
+text say it as a  2576,1076,2827,1012 w251 h64
+text A $499 monthly payment 2576,1188,3203,1124 w627 h64
+text /9 1338,149,1351,131 w14 h18
+text 2 1328,149,1336,131 w8 h18
+text compare 1416,1041,1527,1007 w111 h34
+text They  1336,1041,1403,1007 w67 h34
+text a price on its own. 1336,1132,1782,1068 w446 h64
+text Customers never read 1336,1188,1880,1124 w544 h64
+text /9 95,149,108,131 w12 h18
+text 1 88,149,96,131 w8 h18
+text judge. 492,740,717,656 w225 h85
+text customers  96,740,495,656 w399 h85
+text the only thing 96,822,586,738 w490 h85
+DONE

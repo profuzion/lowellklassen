@@ -1,0 +1,13 @@
+font Manrope-Bold
+FONT MISSING Montserrat-Bold :: Error: No such element
+FONT MISSING Inter-Regular :: Error: No such element
+Slide 01 0,1350 1080x1350
+Slide 02 1240,1350 1080x1350
+Slide 03 2480,1350 1080x1350
+Slide 04 3720,1350 1080x1350
+Slide 05 4960,1350 1080x1350
+Slide 06 6200,1350 1080x1350
+Slide 07 7440,1350 1080x1350
+Slide 08 8680,1350 1080x1350
+Slide 09 9920,1350 1080x1350
+ERR Error: an Illustrator error occurred: 2 ('') line 89

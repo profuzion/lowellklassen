@@ -1,0 +1,31 @@
+slides 9
+Slide 09 removed 3 numbers 2 at 3304,-2764
+Slide 08 removed 3 numbers 2 at 2064,-2764
+Slide 07 removed 3 numbers 2 at 824,-2764
+Slide 06 removed 3 numbers 2 at 3304,-1254
+Slide 05 removed 3 numbers 2 at 2064,-1254
+Slide 04 removed 3 numbers 2 at 824,-1254
+Slide 03 removed 3 numbers 2 at 3304,256
+Slide 02 removed 3 numbers 2 at 2064,256
+Slide 01 removed 1 numbers 2 at 824,256
+rasters 9
+raster 168x168
+raster 168x168
+raster 168x168
+raster 168x168
+raster 168x168
+raster 168x168
+raster 168x168
+raster 168x168
+raster 168x168
+exported slide-01.png
+exported slide-02.png
+exported slide-03.png
+exported slide-04.png
+exported slide-05.png
+exported slide-06.png
+exported slide-07.png
+exported slide-08.png
+exported slide-09.png
+saved 10054040
+DONE

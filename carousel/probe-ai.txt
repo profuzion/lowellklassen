@@ -1,0 +1,15 @@
+name Lowell-Klassen-Price-Carousel.ai
+color DocumentColorSpace.RGB
+artboards 9
+text 64
+groups 18
+Slide 01 1080x1350
+Slide 02 1080x1350
+Slide 03 1080x1350
+Slide 04 1080x1350
+Slide 05 1080x1350
+Slide 06 1080x1350
+Slide 07 1080x1350
+Slide 08 1080x1350
+Slide 09 1080x1350
+DONE

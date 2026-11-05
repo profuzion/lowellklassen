@@ -1,0 +1,28 @@
+version 31.0.0
+name Adobe Illustrator
+fonts 999
+FOUND Manrope-Bold -> Manrope-Bold / Manrope / Bold
+MISSING Montserrat-Bold
+MISSING Montserrat Bold
+MISSING Inter-Regular
+MISSING Inter Regular
+FOUND Montserrat-SemiBold -> Montserrat-SemiBold / Montserrat / SemiBold
+FOUND Inter-Bold -> Inter-Bold / Inter / Bold
+LIST Inter-BlackItalic || Inter || Black Italic
+LIST Inter-Bold || Inter || Bold
+LIST Inter-Italic || Inter || Italic
+LIST Inter-MediumItalic || Inter || Medium Italic
+LIST Inter-Thin || Inter || Thin
+LIST Manrope-Bold || Manrope || Bold
+LIST Manrope-ExtraBold || Manrope || ExtraBold
+LIST Manrope-ExtraLight || Manrope || ExtraLight
+LIST Manrope-Light || Manrope || Light
+LIST Manrope-Medium || Manrope || Medium
+LIST Manrope-Regular || Manrope || Regular
+LIST Manrope-SemiBold || Manrope || SemiBold
+LIST Montserrat-BlackItalic || Montserrat || Black Italic
+LIST Montserrat-ExtraLightItalic || Montserrat || ExtraLight Italic
+LIST Montserrat-SemiBold || Montserrat || SemiBold
+list hits 15
+logo exists true
+ERR Error: Unable to set placed item's file, is the file path provided valid? Or try to use the raster item instead. line 42

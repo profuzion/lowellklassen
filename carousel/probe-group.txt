@@ -1,0 +1,28 @@
+GroupItem 1080x1350 clipped false name Slide 02
+  TextFrame 14x18 [/9]
+  TextFrame 8x18 [2]
+  GroupItem 168x98 clipped true name 
+    PathItem 168x98
+    RasterItem 168x98
+  PathItem 168x98
+  RasterItem 168x98
+  TextFrame 354x34 [ it with everything arou]
+  TextFrame 111x34 [compare]
+  TextFrame 67x34 [They ]
+  TextFrame 446x64 [a price on its own.]
+  TextFrame 544x64 [Customers never read]
+  PathItem 56x4
+  PathItem 1080x1350
+GroupItem 1080x1350 clipped false name Slide 01
+  TextFrame 12x18 [/9]
+  TextFrame 8x18 [1]
+  GroupItem 168x98 clipped true name 
+    PathItem 168x98
+    RasterItem 168x98
+  TextFrame 225x85 [judge.]
+  TextFrame 399x85 [customers ]
+  TextFrame 490x85 [the only thing]
+  CompoundPathItem 527x74
+  PathItem 56x4
+  PathItem 1080x1350
+DONE

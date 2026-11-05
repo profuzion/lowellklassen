@@ -1,0 +1,389 @@
+/* Name It Right: Brand Name Worksheet landing page
+   Layout: dark ink page, one warm light. Two-up hero (copy + form / 3D booklet),
+   brush ticker, stat row, then a single 960px reading column with numbered sections.
+   Brand: Lowell D. Klassen visual guidelines v1 (Oct 2026). */
+
+/* Licensed brand fonts. Drop the files in /public/fonts (see fonts/README.txt).
+   Until they are there, the fallbacks below load from Google Fonts. */
+
+
+
+
+.nir{
+  --black:#000;
+  --ink:#161616;
+  --ink-2:#1f1f1f;
+  --ink-3:#252320;
+  --charcoal:#383838;
+  --gray:#c7c7c7;
+  --muted:#8e8e8e;
+  --label:#7e7e7e;
+  --paper:#f4f2ed;
+  --white:#fff;
+  --yellow:#ffc82c;
+  --yellow-deep:#e0a800;
+  --on-yellow:#171717;
+  --line:rgba(199,199,199,.18);
+  --line-strong:rgba(199,199,199,.32);
+  --error:#ff8a6b;
+
+  --font-display:"Glory Culture Alt","Permanent Marker","Marker Felt",cursive;
+  --font-text:"Sohne","Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+
+  --ease:cubic-bezier(.2,.7,.3,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --pad:clamp(20px,5vw,80px);
+  --max:1200px;
+  --read:760px;
+  --radius:16px;
+  color-scheme:dark;
+}
+
+.nir *, .nir *::before, .nir *::after{box-sizing:border-box}
+.nir{scroll-behavior:smooth;scroll-padding-top:90px}
+.nir{
+  margin:0;background:var(--ink);color:var(--gray);
+  font-family:var(--font-text);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+.nir img{max-width:100%;display:block}
+.nir a{color:inherit}
+.nir button{font:inherit}
+.nir ::selection{background:var(--yellow);color:var(--on-yellow)}
+.nir :focus-visible{outline:2px solid var(--yellow);outline-offset:3px;border-radius:6px}
+
+.nir .container{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--pad)}
+.nir .read{max-width:var(--read)}
+
+/* ---------- type ---------- */
+.nir .display{
+  font-family:var(--font-display);font-weight:400;text-transform:uppercase;
+  color:var(--paper);line-height:.88;letter-spacing:.005em;margin:0;text-wrap:balance;
+}
+.nir .display .hl{color:var(--yellow)}
+.nir .h1{font-size:clamp(3.4rem,7.4vw,6.2rem)}
+.nir .h2{font-size:clamp(2.4rem,4.6vw,3.6rem)}
+.nir .h3{font-size:clamp(1.9rem,3.6vw,2.5rem)}
+.nir .h2-long{font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:.95}
+.nir .eyebrow{
+  display:inline-flex;flex-wrap:wrap;align-items:center;gap:.4em .6em;
+  font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--yellow);
+}
+.nir .eyebrow .num{color:var(--yellow)}
+.nir .eyebrow .sep{width:28px;height:1px;background:var(--yellow);opacity:.6}
+.nir .lede{font-size:clamp(1.05rem,1.4vw,1.18rem);color:var(--gray);line-height:1.7;max-width:58ch}
+.nir p{margin:0}
+.nir .muted{color:var(--muted)}
+
+/* ---------- progress + header ---------- */
+.nir .progress{
+  position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:100%;
+  background:var(--yellow);transform-origin:0 50%;transform:scaleX(0);z-index:60;
+}
+.nir .site-header{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
+  transition:background .35s var(--ease),border-color .35s var(--ease),backdrop-filter .35s;
+  border-bottom:1px solid transparent;
+}
+.nir .site-header.is-scrolled{
+  background:rgba(22,22,22,.78);backdrop-filter:blur(14px) saturate(1.2);
+  -webkit-backdrop-filter:blur(14px) saturate(1.2);border-color:var(--line);
+}
+.nir .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.nir .logo{display:block;width:clamp(150px,18vw,200px);transition:transform .4s var(--ease)}
+.nir .logo:hover{transform:rotate(-1.5deg) scale(1.02)}
+.nir .header-meta{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--label)}
+.nir .header-right{display:flex;align-items:center;min-height:44px}
+.nir .site-header .header-cta{display:none}
+.nir .site-header.show-cta .header-cta{display:inline-flex;animation:rise .45s var(--ease-out) both}
+.nir .site-header.show-cta .header-meta{display:none}
+
+/* ---------- buttons ---------- */
+.nir .btn{
+  --mx:0px;--my:0px;
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  border-radius:999px;padding:18px 32px;font-weight:600;font-size:15px;line-height:1;
+  text-decoration:none;cursor:pointer;border:1px solid transparent;
+  transform:translate(var(--mx),var(--my));
+  transition:transform .35s var(--ease),background .25s,color .25s,border-color .25s,box-shadow .35s var(--ease);
+  -webkit-tap-highlight-color:transparent;white-space:nowrap;
+}
+.nir .btn-primary{background:var(--yellow);color:var(--on-yellow);box-shadow:0 0 0 0 rgba(255,200,44,0)}
+.nir .btn-primary:hover{background:var(--yellow);box-shadow:0 10px 34px -10px rgba(255,200,44,.55)}
+.nir .btn-primary:active{background:var(--yellow-deep);transform:translate(var(--mx),var(--my)) scale(.98)}
+.nir .btn-ghost{border-color:var(--paper);color:var(--paper);background:transparent}
+.nir .btn-ghost:hover{background:var(--paper);color:var(--on-yellow)}
+.nir .btn-sm{padding:12px 20px;font-size:13.5px;white-space:nowrap!important}
+.nir .btn .arrow{display:inline-block;transition:transform .35s var(--ease)}
+.nir .btn:hover .arrow{transform:translateX(4px)}
+.nir .btn .spinner{
+  position:absolute;width:20px;height:20px;border-radius:50%;
+  border:2px solid rgba(23,23,23,.25);border-top-color:var(--on-yellow);
+  opacity:0;animation:spin .7s linear infinite;
+}
+.nir .btn.is-loading .label, .nir .btn.is-loading .arrow{opacity:0}
+.nir .btn.is-loading .spinner{opacity:1}
+.nir .btn.is-loading{pointer-events:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- hero ---------- */
+.nir .hero{position:relative;isolation:isolate;padding-block:clamp(36px,6vw,72px) clamp(56px,8vw,96px)}
+.nir .hero::before{
+  content:"";position:absolute;inset:-120px 0 0;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 55% 60% at var(--gx,50%) var(--gy,0%),rgba(255,200,44,.17),transparent 70%);
+  transition:background .2s linear;
+}
+.nir .hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(32px,5vw,72px);align-items:center}
+.nir .hero-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
+.nir .hero-title{position:relative;padding-bottom:.18em}
+.nir .title-swoosh{
+  position:absolute;left:-2%;bottom:-.1em;width:72%;height:.3em;
+  clip-path:inset(0 100% 0 0);animation:paint 1.1s .55s var(--ease-out) forwards;
+}
+@keyframes paint{to{clip-path:inset(0 0 0 0)}}
+
+/* staggered load */
+.nir .load{animation:rise .9s var(--ease-out) both}
+.nir .load-1{animation-delay:.05s}.nir .load-2{animation-delay:.15s}.nir .load-3{animation-delay:.25s}.nir .load-4{animation-delay:.38s}.nir .load-5{animation-delay:.5s}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ---------- form ---------- */
+.nir .signup{
+  position:relative;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015));
+  border:1px solid var(--line);border-radius:var(--radius);padding:26px;
+  transition:border-color .4s var(--ease),box-shadow .4s var(--ease);
+}
+.nir .signup:focus-within{border-color:rgba(255,200,44,.45);box-shadow:0 0 0 6px rgba(255,200,44,.06)}
+.nir .signup-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.nir .field{position:relative;min-width:0}
+.nir .field input{
+  width:100%;height:58px;padding:22px 18px 8px;border-radius:12px;
+  background:var(--ink);border:1px solid var(--line-strong);color:var(--paper);
+  font:inherit;font-size:16px;transition:border-color .25s,background .25s;
+}
+.nir .field input:hover{border-color:rgba(199,199,199,.5)}
+.nir .field input:focus{outline:none;border-color:var(--yellow);background:#1a1a1a}
+.nir .field label{
+  position:absolute;left:18px;top:19px;font-size:15px;color:var(--muted);pointer-events:none;
+  transform-origin:0 0;transition:transform .25s var(--ease),color .25s;
+}
+.nir .field input:focus + label, .nir .field input:not(:placeholder-shown) + label{transform:translateY(-11px) scale(.74);color:var(--yellow)}
+.nir .field.has-error input{border-color:var(--error)}
+.nir .field.has-error label{color:var(--error)}
+.nir .field-error{display:block;min-height:18px;font-size:12.5px;color:var(--error);padding:5px 4px 0}
+.nir .field.is-valid input{border-color:rgba(255,200,44,.5)}
+.nir .signup .btn{width:100%;margin-top:4px}
+.nir .consent{font-size:12.5px;color:var(--muted);line-height:1.5;margin-top:12px}
+.nir .form-status{font-size:13.5px;color:var(--error);margin-top:10px;min-height:0}
+.nir .hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.nir .proof-row{display:flex;align-items:center;gap:14px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.nir .proof-row strong{color:var(--paper);font-weight:600}
+.nir .proof-star{color:var(--yellow);font-size:14px}
+
+.nir .signup-success{display:none;text-align:left}
+.nir .signup.is-done .signup-form{display:none}
+.nir .signup.is-done .signup-success{display:block;animation:rise .7s var(--ease-out) both}
+.nir .check{width:58px;height:58px;margin-bottom:14px}
+.nir .check circle{fill:none;stroke:rgba(255,200,44,.25);stroke-width:3}
+.nir .check path{fill:none;stroke:var(--yellow);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60}
+.nir .signup.is-done .check path{animation:draw .6s .25s var(--ease-out) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.nir .signup-success .h3{margin-bottom:12px}
+.nir .signup-success p{margin-bottom:18px}
+.nir .signup-success .next{padding-top:16px;border-top:1px solid var(--line)}
+.nir .signup-success .next p{font-size:14px;color:var(--muted);margin-bottom:12px}
+
+/* ---------- booklet ---------- */
+.nir .booklet-stage{perspective:1400px;display:flex;justify-content:center;padding:20px 0}
+.nir .booklet{
+  --rx:6deg;--ry:-16deg;
+  position:relative;width:min(100%,400px);aspect-ratio:8.5/11;transform-style:preserve-3d;
+  transform:rotateX(var(--rx)) rotateY(var(--ry)) rotateZ(1.5deg);
+  transition:transform .6s var(--ease-out);
+  animation:float 7s ease-in-out infinite;
+}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -10px}}
+.nir .booklet-pages{
+  position:absolute;inset:6px -8px -6px 8px;border-radius:4px 10px 10px 4px;
+  background:repeating-linear-gradient(90deg,#e9e6df 0 2px,#d8d4cb 2px 3px);transform:translateZ(-14px);
+}
+.nir .booklet-cover{
+  position:absolute;inset:0;border-radius:4px 10px 10px 4px;overflow:hidden;
+  background:
+    radial-gradient(ellipse 80% 45% at 30% 0%,rgba(255,200,44,.14),transparent 70%),
+    linear-gradient(160deg,#1d1d1d,#101010);
+  box-shadow:inset 6px 0 10px -6px rgba(0,0,0,.8),0 40px 80px -30px rgba(0,0,0,.9),0 18px 36px -18px rgba(0,0,0,.7);
+  padding:11% 10% 9%;display:flex;flex-direction:column;
+}
+.nir .booklet-cover::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.07) 45%,transparent 60%);
+  transform:translateX(var(--shine,-30%));transition:transform .6s var(--ease-out);
+}
+.nir .booklet-spine{position:absolute;left:0;top:0;bottom:0;width:7%;background:linear-gradient(90deg,rgba(0,0,0,.55),transparent)}
+.nir .booklet-kicker{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--yellow);font-weight:600}
+.nir .booklet-title{font-family:var(--font-display);text-transform:uppercase;color:var(--paper);font-size:clamp(2.3rem,4.6vw,3.3rem);line-height:.88;margin-top:auto}
+.nir .booklet-title span{color:var(--yellow)}
+.nir .booklet-swoosh{width:80%;height:auto;margin:10px 0 0 -4%}
+.nir .booklet-sub{color:#a9a6a0;font-size:12.5px;line-height:1.5;margin-top:14px;max-width:26ch}
+.nir .booklet-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:18px;border-top:1px solid rgba(199,199,199,.14)}
+.nir .booklet-foot img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.nir .booklet-foot span{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--label)}
+.nir .booklet-tag{
+  position:absolute;right:-14px;top:12%;transform:translateZ(40px) rotate(6deg);
+  background:var(--yellow);color:var(--on-yellow);font-weight:600;font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;padding:10px 16px;border-radius:999px;box-shadow:0 12px 30px -10px rgba(0,0,0,.7);
+}
+
+/* ---------- ticker ---------- */
+.nir .ticker{border-block:1px solid var(--line);overflow:hidden;background:var(--ink-2);padding-block:18px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.nir .ticker-track{display:flex;width:max-content;animation:marquee 38s linear infinite}
+.nir .ticker:hover .ticker-track{animation-play-state:paused}
+.nir .ticker-group{display:flex;align-items:center;gap:30px;padding-right:30px}
+.nir .ticker-item{font-family:var(--font-display);text-transform:uppercase;color:var(--paper);font-size:clamp(1.4rem,2.6vw,2rem);white-space:nowrap;line-height:1}
+.nir .ticker-star{color:var(--yellow);font-size:1rem}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ---------- stats ---------- */
+.nir .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-block:clamp(48px,7vw,80px)}
+.nir .stat{border-left:1px solid var(--line);padding-left:20px}
+.nir .stat b{display:block;font-family:var(--font-display);font-weight:400;color:var(--yellow);font-size:clamp(3.2rem,6vw,4.6rem);line-height:.9;font-variant-numeric:tabular-nums}
+.nir .stat span{display:block;margin-top:10px;font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--label)}
+
+/* ---------- sections ---------- */
+.nir .section{padding-block:clamp(64px,9vw,120px);position:relative}
+.nir .section.alt{background:var(--ink-2)}
+.nir .section-head{display:flex;flex-direction:column;gap:18px;margin-bottom:clamp(28px,4vw,44px)}
+.nir .stack{display:flex;flex-direction:column;gap:18px}
+.nir .two-col{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,6vw,80px);align-items:start}
+
+.nir .quote{border-left:3px solid var(--yellow);padding:4px 0 4px 22px}
+.nir .quote p{color:var(--paper);font-size:clamp(1.1rem,1.8vw,1.32rem);line-height:1.5}
+.nir .quote cite{display:block;margin-top:14px;font-style:normal;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--label)}
+
+/* steps timeline */
+.nir .steps{list-style:none;margin:0;padding:0;position:relative}
+.nir .steps::before, .nir .steps::after{content:"";position:absolute;left:23px;top:24px;bottom:24px;width:2px;background:var(--line)}
+.nir .steps::after{background:var(--yellow);transform-origin:top;transform:scaleY(var(--fill,0));transition:transform .15s linear}
+.nir .step{position:relative;display:grid;grid-template-columns:48px minmax(0,1fr);gap:22px;padding-block:18px}
+.nir .step-dot{
+  position:relative;z-index:1;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;
+  background:var(--ink);border:1px solid var(--line-strong);color:var(--muted);
+  font-size:13px;font-weight:600;letter-spacing:.06em;font-variant-numeric:tabular-nums;
+  transition:background .4s var(--ease),color .4s,border-color .4s,transform .4s var(--ease);
+}
+.nir .step.is-active .step-dot{background:var(--yellow);color:var(--on-yellow);border-color:var(--yellow);transform:scale(1.06)}
+.nir .step h3{margin:10px 0 6px;font-size:1.12rem;font-weight:600;color:var(--paper);letter-spacing:-.005em}
+.nir .step p{color:var(--gray)}
+.nir .step-card{padding:4px 0 18px;border-bottom:1px solid var(--line);transition:transform .4s var(--ease)}
+.nir .step:hover .step-card{transform:translateX(6px)}
+.nir .step:last-child .step-card{border-bottom:0}
+
+/* who it's for */
+.nir .who{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;list-style:none;margin:0;padding:0}
+.nir .who li{
+  position:relative;display:flex;gap:16px;align-items:flex-start;padding:24px;border-radius:var(--radius);
+  background:var(--ink);border:1px solid var(--line);color:var(--paper);font-size:1.02rem;line-height:1.5;
+  transition:transform .45s var(--ease),border-color .35s,background .35s;
+}
+.nir .who li:hover{transform:translateY(-4px);border-color:rgba(255,200,44,.45);background:#1a1a1a}
+.nir .who .tick{flex:none;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--yellow);display:grid;place-items:center;margin-top:1px;transition:background .35s}
+.nir .who .tick svg{width:12px;height:12px;stroke:var(--yellow);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke .35s}
+.nir .who li:hover .tick{background:var(--yellow)}
+.nir .who li:hover .tick svg{stroke:var(--on-yellow)}
+
+/* faith */
+.nir .faith{
+  position:relative;overflow:hidden;border-radius:calc(var(--radius) + 4px);padding:clamp(28px,5vw,56px);
+  background:radial-gradient(ellipse 60% 120% at 100% 0%,rgba(255,200,44,.12),transparent 60%),var(--ink);
+  border:1px solid var(--line);
+}
+.nir .faith-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,64px);align-items:center}
+
+/* about */
+.nir .about-sig{width:7.5rem;height:7.5rem;margin-top:6px;border-radius:50%;object-fit:cover}
+.nir .about-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.nir .chip{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--paper);border:1px solid var(--line-strong);border-radius:999px;padding:8px 14px}
+.nir .names{display:flex;flex-wrap:wrap;gap:8px}
+.nir .names span{font-family:var(--font-display);text-transform:uppercase;color:var(--yellow);font-size:1.15rem;line-height:1;padding:8px 14px;border:1px dashed rgba(255,200,44,.4);border-radius:10px;transition:transform .35s var(--ease),background .35s,color .35s}
+.nir .names span:hover{transform:translateY(-3px) rotate(-2deg);background:var(--yellow);color:var(--on-yellow)}
+
+/* faq */
+.nir .faq{border-top:1px solid var(--line)}
+.nir .faq-item{border-bottom:1px solid var(--line)}
+.nir .faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;text-align:left;
+  background:none;border:0;color:var(--paper);cursor:pointer;padding:24px 0;font-size:1.08rem;font-weight:600;
+}
+.nir .faq-q:hover{color:var(--yellow)}
+.nir .faq-icon{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--line-strong);position:relative;transition:transform .45s var(--ease),background .3s,border-color .3s}
+.nir .faq-icon::before, .nir .faq-icon::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:currentColor;translate:-50% -50%;transition:transform .45s var(--ease)}
+.nir .faq-icon::after{transform:rotate(90deg)}
+.nir .faq-item.is-open .faq-icon{transform:rotate(180deg);background:var(--yellow);border-color:var(--yellow);color:var(--on-yellow)}
+.nir .faq-item.is-open .faq-icon::after{transform:rotate(0)}
+.nir .faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease-out)}
+.nir .faq-item.is-open .faq-a{grid-template-rows:1fr}
+.nir .faq-a > div{overflow:hidden}
+.nir .faq-a p{padding-bottom:24px;color:var(--gray);max-width:62ch}
+
+/* final cta */
+.nir .final{position:relative;isolation:isolate;text-align:center;padding-block:clamp(80px,12vw,150px);overflow:hidden}
+.nir .final::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse 50% 70% at 50% 100%,rgba(255,200,44,.18),transparent 70%)}
+.nir .final .display{position:relative;display:inline-block}
+.nir .final .lede{margin:22px auto 34px;max-width:44ch}
+.nir .final-swoosh{display:block;width:min(70%,420px);margin:14px auto 0;clip-path:inset(0 100% 0 0);transition:clip-path 1.2s var(--ease-out)}
+.nir .final.in-view .final-swoosh{clip-path:inset(0 0 0 0)}
+
+/* footer */
+.nir .site-footer{border-top:1px solid var(--line);padding-block:36px 44px}
+.nir .footer-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px}
+.nir .footer-inner img{width:150px;opacity:.85}
+.nir .footer-inner p{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--label)}
+.nir .footer-inner a{color:var(--gray);text-decoration:none;border-bottom:1px solid var(--line-strong)}
+.nir .footer-inner a:hover{color:var(--yellow);border-color:var(--yellow)}
+
+/* ---------- reveal on scroll (only for things below the fold at load) ---------- */
+.nir .pre-reveal{opacity:0;transform:translateY(22px)}
+.nir .revealed{opacity:1;transform:none;transition:opacity .9s var(--ease-out),transform .9s var(--ease-out);transition-delay:var(--d,0s)}
+
+.nir .sticky-head{position:sticky;top:110px}
+.nir .nowrap{white-space:nowrap}
+.nir .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- responsive ---------- */
+@media (max-width:960px){
+  .nir .hero-grid{grid-template-columns:1fr}
+  .nir .booklet-stage{padding:8px 0 0}
+  .nir .booklet{width:min(64%,300px)}
+  .nir .two-col, .nir .faith-grid{grid-template-columns:1fr}
+  .nir .sticky-head{position:static}
+}
+@media (max-width:640px){
+  .nir .signup-row{grid-template-columns:1fr;gap:0}
+  .nir .stats{grid-template-columns:repeat(2,1fr);row-gap:32px}
+  .nir .who{grid-template-columns:1fr}
+  .nir .signup{padding:20px}
+  .nir .header-meta{display:none}
+  .nir .eyebrow{letter-spacing:.2em}
+  .nir .eyebrow .sep{width:14px}
+  .nir .booklet-tag{right:-6px;font-size:10.5px;padding:8px 12px}
+  .nir .btn{white-space:normal}
+  .nir .final .h1{font-size:2.7rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .nir *, .nir *::before, .nir *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .nir{scroll-behavior:auto}
+  .nir .ticker-track{animation:none}
+  .nir .title-swoosh, .nir .final-swoosh{clip-path:none!important}
+  .nir .pre-reveal{opacity:1;transform:none}
+}
+
+.nir #signup { scroll-margin-top: 6.5rem; }
+.nir .sticky-head { top: calc(4.75rem + 1.25rem); }
+.nir .stack .quote { margin-top: 18px; }
+.nir .faith { margin-top: clamp(40px, 6vw, 72px); }
+.nir .faith .lede { max-width: none; }
+.nir .signup-success strong { color: var(--paper); }
