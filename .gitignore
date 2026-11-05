@@ -43,3 +43,5 @@ next-env.d.ts
 
 # Paid Brand Clarity Audit PDF. Served only after Stripe confirms payment.
 /private/*.pdf
+
+.vercel
