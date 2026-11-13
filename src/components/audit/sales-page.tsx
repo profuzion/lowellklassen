@@ -108,7 +108,7 @@ const fit = [
 export function SalesPage() {
   return (
     <>
-      <SiteHeader mode="audit" />
+      <SiteHeader />
       <CancelNotice />
       <main id="main" className="audit-main audit-sales">
         <ol className="audit-flow">
@@ -239,7 +239,7 @@ export function SalesPage() {
           </div>
             </div>
 
-            <div aria-labelledby="routes-title">
+            <div className="audit-follow" aria-labelledby="routes-title">
           <div className="lk-grid">
             <h2 id="routes-title" className="lk-display audit-routes-title">
               Two ways through.
@@ -414,7 +414,7 @@ export function SalesPage() {
           </div>
         </section>
 
-        <div aria-labelledby="faq-title">
+        <div className="audit-follow" aria-labelledby="faq-title">
           <div className="lk-grid audit-split">
             <h2 id="faq-title" className="lk-display">
               Before you buy.

@@ -225,12 +225,12 @@
 
 .audit-band,
 .audit-final {
-  background: var(--lk-surface);
+  background: transparent;
 }
 
 .audit-desk {
-  background: var(--lk-paper);
-  color: #383838;
+  background: transparent;
+  color: var(--lk-muted);
 }
 
 .audit h2,
@@ -249,7 +249,7 @@
 
 .audit-desk h2,
 .audit-desk h3 {
-  color: var(--lk-ink);
+  color: var(--lk-paper);
 }
 
 .audit-split,
@@ -372,7 +372,7 @@
 .audit-desk-head p {
   margin: 1rem 0 0;
   max-width: 34rem;
-  color: #383838;
+  color: var(--lk-muted);
   font-size: 1.125rem;
   line-height: 1.5;
 }
@@ -385,7 +385,7 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-padding-inline: var(--lk-gutter);
-  scrollbar-color: #161616 #e4dfd6;
+  scrollbar-color: var(--lk-accent) transparent;
 }
 
 .audit-page {
@@ -406,13 +406,13 @@
   display: grid;
   gap: 0.2rem;
   margin-top: 0.75rem;
-  color: #383838;
+  color: var(--lk-muted);
   font-size: 0.95rem;
   line-height: 1.4;
 }
 
 .audit-page strong {
-  color: var(--lk-ink);
+  color: var(--lk-paper);
   font-weight: 600;
 }
 
@@ -1156,9 +1156,10 @@
   align-items: start;
   margin: 0;
   padding: clamp(1.15rem, 2.2vw, 1.7rem);
+  border: 1px solid rgba(199, 199, 199, 0.14);
   border-radius: 1.6rem;
-  background: #efece6;
-  color: #3c3c3c;
+  background: #1f1f1f;
+  color: var(--lk-muted);
 }
 
 .audit-step-mark {
@@ -1168,42 +1169,11 @@
   height: 2.55rem;
   margin-top: 0.15rem;
   border-radius: 50%;
-  background: #8d5e3c;
-  color: #fff;
+  background: var(--lk-accent);
+  color: var(--lk-on-accent);
   font-size: 1.05rem;
   font-weight: 650;
   line-height: 1;
-}
-
-.audit-step .lk-display,
-.audit-step .audit-name,
-.audit-step .audit-proof,
-.audit-step .audit-index h3,
-.audit-step .audit-route h3,
-.audit-step .audit-names,
-.audit-step .audit-hours span,
-.audit-step .audit-hours-quiet,
-.audit-step .audit-quote p,
-.audit-step .audit-price-lead,
-.audit-step .audit-cad,
-.audit-step .audit-faq summary,
-.audit-step .audit-fit li {
-  color: #1a1a1a;
-}
-
-.audit-step .audit-lede,
-.audit-step .audit-hero-line,
-.audit-step .audit-hero-cad,
-.audit-step .audit-prose,
-.audit-step .audit-prose p,
-.audit-step .audit-fine,
-.audit-step .audit-role,
-.audit-step .audit-when,
-.audit-step .audit-aside,
-.audit-step .audit-quote figcaption,
-.audit-step .audit-includes li,
-.audit-step .audit-scripture {
-  color: #4a4a4a;
 }
 
 .audit-step .audit-hero,
@@ -1234,13 +1204,37 @@
   font-size: clamp(1.8rem, 3vw, 2.6rem);
 }
 
-.audit-step .audit-pull,
-.audit-step .audit-faq a,
-.audit-step .audit-fine a {
-  color: #1a1a1a;
-}
-
 .audit-step .audit-amount {
   margin-top: 1.2rem;
+}
+
+.audit-step > :not(.audit-step-mark) {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.audit-step .lk-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.audit-step .audit-desk,
+.audit-step .audit-band,
+.audit-step .audit-section,
+.audit-step .audit-follow {
+  margin-top: clamp(3.25rem, 6vw, 5rem);
+}
+
+.audit-routes {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 900px) {
+  .audit-step .audit-split,
+  .audit-step .audit-self,
+  .audit-step .audit-about-grid,
+  .audit-step .audit-desk-head {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
 }
 

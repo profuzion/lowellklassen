@@ -20,7 +20,7 @@ function isCurrent(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-export function SiteHeader({ mode = "studio" }: { mode?: "studio" | "audit" }) {
+export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
@@ -109,19 +109,12 @@ export function SiteHeader({ mode = "studio" }: { mode?: "studio" | "audit" }) {
   }, [open]);
 
   const resourceCurrent = resources.some((link) => isCurrent(pathname, link.href));
-  const showBooking = mode !== "audit";
 
   return (
     <header className={stuck || open ? "lk-header is-stuck" : "lk-header"}>
-      <a className="lk-wordmark" href={mode === "audit" ? "#audit-title" : "/#top"}>
+      <a className="lk-wordmark" href="/#top">
         <img src="/brand/lowell-profile.webp" alt="Lowell D. Klassen" />
       </a>
-      {mode === "audit" ? (
-        <a className="lk-header-back" href="/">
-          The studio
-        </a>
-      ) : (
-      <>
       <nav className="lk-nav" aria-label="Primary">
         {links.map((link) => (
           <a
@@ -189,12 +182,9 @@ export function SiteHeader({ mode = "studio" }: { mode?: "studio" | "audit" }) {
           ) : null}
         </div>
       </nav>
-      <p className="lk-since">Since 1999</p>
-      {showBooking ? (
-        <a className="lk-button lk-header-cta" href={contact.booking}>
-          Book a call
-        </a>
-      ) : null}
+      <a className="lk-button lk-header-cta" href={contact.booking}>
+        Book a call
+      </a>
       <button
         ref={buttonRef}
         type="button"
@@ -239,19 +229,15 @@ export function SiteHeader({ mode = "studio" }: { mode?: "studio" | "audit" }) {
               ))}
             </div>
           </nav>
-          {showBooking ? (
-            <a
-              className="lk-button"
-              href={contact.booking}
-              onClick={() => setOpen(false)}
-            >
-              Book a call
-            </a>
-          ) : null}
+          <a
+            className="lk-button"
+            href={contact.booking}
+            onClick={() => setOpen(false)}
+          >
+            Book a call
+          </a>
         </div>
       ) : null}
-      </>
-      )}
     </header>
   );
 }
