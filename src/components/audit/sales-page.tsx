@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Booklet } from "@/components/audit/booklet";
 import { BuyButton } from "@/components/audit/buy-button";
 import { CancelNotice } from "@/components/audit/cancel-notice";
-import { StickyBuy } from "@/components/audit/sticky-buy";
 import { SiteFooter } from "@/components/home/site-footer";
 import { SiteHeader } from "@/components/home/site-header";
 import { contact } from "@/content/home";
@@ -103,7 +102,7 @@ const fit = [
   "You run an established business that does good work, and the brand has not kept up with it.",
   "Customers keep asking “do you do…?” or they cannot tell your products apart.",
   "You are about to pay for a new logo or a new website, and you want the real problem named first.",
-  "You took the free Brand Clarity Assessment and want to go further on the low scores.",
+  "You already know a few weak spots, and you want to go further on them.",
 ] as const;
 
 export function SalesPage() {
@@ -112,52 +111,55 @@ export function SalesPage() {
       <SiteHeader mode="audit" />
       <CancelNotice />
       <main id="main" className="audit-main audit-sales">
-        <section className="audit-hero" aria-labelledby="audit-title">
-          <div className="lk-grid audit-hero-grid">
-            <div className="audit-hero-copy">
-              <h1 id="audit-title" className="lk-display">
-                <span>See your</span>
-                <span>brand</span>
-                <span className="lk-hl">
-                  clearly.
-                  <img className="lk-swoosh" src="/brand/brush-swoosh.svg" alt="" />
-                </span>
-              </h1>
-              <p className="audit-name">The Brand Clarity Audit</p>
+        <ol className="audit-flow">
+          <li className="audit-step">
+            <span className="audit-step-mark" aria-hidden="true">
+              1
+            </span>
+            <section className="audit-hero" aria-labelledby="audit-title">
+              <div className="audit-hero-grid">
+                <div className="audit-hero-copy">
+                  <h1 id="audit-title" className="lk-display">
+                    <span>See your</span>
+                    <span>brand</span>
+                    <span className="lk-hl">
+                      clearly.
+                      <img className="lk-swoosh" src="/brand/brush-swoosh.svg" alt="" />
+                    </span>
+                  </h1>
+                  <p className="audit-name">The Brand Clarity Audit</p>
+                  <p className="audit-hero-line">
+                    A workbook you fill in yourself. Sixteen tests, three
+                    priorities, and a plan for the next 30 days.
+                  </p>
+                  <div className="audit-hero-buy" id="buy">
+                    <p className="audit-hero-price">
+                      <span className="sr-only">Price </span>$27
+                      <span className="audit-hero-cad">CAD</span>
+                    </p>
+                    <BuyButton>Get the Audit</BuyButton>
+                  </div>
+                </div>
+                <Booklet />
+              </div>
+            </section>
+          </li>
+
+          <li className="audit-step">
+            <span className="audit-step-mark" aria-hidden="true">
+              2
+            </span>
+            <section aria-labelledby="benefit-title">
+              <h2 id="benefit-title" className="lk-display">
+                Three priorities before the next logo.
+              </h2>
               <p className="audit-lede">
                 Sixteen tests for the brand, the offers, and the names. You leave
                 with three priorities and a plan for the next 30 days. Do this
                 before you pay for another logo or another website.
               </p>
-              <div className="audit-hero-buy" id="buy">
-                <BuyButton>Get the Audit for $27</BuyButton>
-                <p className="audit-fine">
-                  $27 CAD. The fillable PDF is yours the moment you pay. Email me
-                  within 14 days for a refund.
-                </p>
-                <p className="audit-proof">
-                  More than 100 brands since 1999. I start every one this way.
-                </p>
-              </div>
-            </div>
-            <Booklet />
-          </div>
-          <div className="lk-grid">
-            <ul className="audit-line">
-              <li>16 tests</li>
-              <li>Two ways through</li>
-              <li>Three priorities</li>
-              <li>One 30-day plan</li>
-            </ul>
-          </div>
-        </section>
-
-        <section className="audit-band" aria-labelledby="pattern-title">
-          <div className="lk-grid audit-split">
-            <h2 id="pattern-title" className="lk-display">
-              The brand stayed behind.
-            </h2>
-            <div className="audit-prose">
+              <div className="audit-prose">
+                <h3 className="lk-display audit-subhead">The brand stayed behind.</h3>
               <p>
                 You added products. You took on bigger customers. The team grew.
                 The name, the logo, and the way you describe what you sell still
@@ -173,28 +175,24 @@ export function SalesPage() {
               <p className="audit-pull">
                 Your brand was built for an earlier version of the business.
               </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="audit-section" aria-labelledby="inside-title">
-          <div className="lk-grid audit-split audit-split-intro">
-            <div>
-              <h2 id="inside-title" className="lk-display">
-                Sixteen tests. Inside out.
-              </h2>
-              <div className="audit-mid-buy">
-                <BuyButton>Get the Audit for $27</BuyButton>
               </div>
-            </div>
-            <p className="audit-lede audit-lede-tight">
+            </section>
+          </li>
+
+          <li className="audit-step">
+            <span className="audit-step-mark" aria-hidden="true">
+              3
+            </span>
+            <section aria-labelledby="inside-title">
+              <h2 id="inside-title" className="lk-display">
+                What you leave with.
+              </h2>
+              <p className="audit-lede">
               These are the checks I run before I design anything. You work them
               with a pen and the things you already have: a business card, a
               recent quote, the website on your phone, photos of the trucks and
               the signs.
             </p>
-          </div>
-          <div className="lk-grid">
             <ol className="audit-index">
               {tests.map((test) => (
                 <li key={test.number}>
@@ -211,10 +209,8 @@ export function SalesPage() {
               The website is one test of sixteen, beside trust, proof, and the
               next step.
             </p>
-          </div>
-        </section>
 
-        <section className="audit-desk" aria-labelledby="desk-title">
+            <div className="audit-desk" aria-labelledby="desk-title">
           <div className="lk-grid audit-desk-head">
             <h2 id="desk-title" className="lk-display">
               Look inside.
@@ -241,9 +237,9 @@ export function SalesPage() {
               </figure>
             ))}
           </div>
-        </section>
+            </div>
 
-        <section className="audit-section" aria-labelledby="routes-title">
+            <div aria-labelledby="routes-title">
           <div className="lk-grid">
             <h2 id="routes-title" className="lk-display audit-routes-title">
               Two ways through.
@@ -287,7 +283,7 @@ export function SalesPage() {
               back for the Full Audit.
             </p>
           </div>
-        </section>
+            </div>
 
         <section className="audit-band" aria-labelledby="outcome-title">
           <div className="lk-grid audit-split">
@@ -356,20 +352,20 @@ export function SalesPage() {
                 You score the brand. You write the plan. I don’t review the
                 pages, and I don’t send back a finished audit.
               </p>
-              <p>
-                When you want a second set of eyes, book a free 15-minute call
-                and bring the scorecard. The call is separate.
-              </p>
-              <p>
-                <a className="lk-textlink" href={contact.booking}>
-                  Book a free 15-minute call
-                </a>
-              </p>
             </div>
-          </div>
-        </section>
+            </div>
+            </section>
+            </section>
+          </li>
 
-        <section className="audit-section audit-about" aria-labelledby="about-title">
+          <li className="audit-step">
+            <span className="audit-step-mark" aria-hidden="true">
+              4
+            </span>
+            <section className="audit-about" aria-labelledby="about-title">
+              <p className="audit-proof">
+                More than 100 brands since 1999. I start every one this way.
+              </p>
           <div className="lk-grid audit-about-grid">
             <figure className="audit-portrait">
               <Image
@@ -418,38 +414,7 @@ export function SalesPage() {
           </div>
         </section>
 
-        <section className="audit-section" aria-labelledby="price-title">
-          <div className="lk-grid audit-price">
-            <div className="audit-amount-block">
-              <h2 id="price-title" className="lk-display audit-amount">
-                <span className="sr-only">Price </span>$27
-              </h2>
-              <p className="audit-cad">CAD, once</p>
-            </div>
-            <div>
-              <p className="audit-price-lead">
-                You know the first three fixes before you commission the next
-                design.
-              </p>
-              <ul className="audit-includes">
-                <li>32-page workbook. Fill it on screen, or print it.</li>
-                <li>16 tests with examples and checklists.</li>
-                <li>Quick Scorecard, priority method, and 30-day plan.</li>
-                <li>Brand Brief and action-plan pages you can reuse.</li>
-              </ul>
-              <div id="price">
-                <BuyButton>Get the Audit for $27</BuyButton>
-              </div>
-              <p className="audit-fine">
-                Secure checkout with Stripe. The download is on the next page,
-                and a copy arrives by email. Paying from outside Canada? Your
-                card converts it at checkout.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="audit-band" aria-labelledby="faq-title">
+        <div aria-labelledby="faq-title">
           <div className="lk-grid audit-split">
             <h2 id="faq-title" className="lk-display">
               Before you buy.
@@ -464,23 +429,6 @@ export function SalesPage() {
                   Right after checkout you land on a page with your download
                   button. The same link comes to your inbox. It’s a fillable
                   PDF. Fill it on screen or print it.
-                </p>
-              </details>
-              <details className="audit-faq">
-                <summary>
-                  Do I need the free Assessment first?
-                  <i aria-hidden="true" />
-                </summary>
-                <p>
-                  The Audit stands on its own. If you already took the{" "}
-                  <a
-                    href="https://profuzionstudio.com/brand-clarity/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Brand Clarity Assessment
-                  </a>
-                  , use the Audit to go further on the low scores.
                 </p>
               </details>
               <details className="audit-faq">
@@ -502,9 +450,7 @@ export function SalesPage() {
                 </summary>
                 <p>
                   You work the pages yourself. I don’t review your answers or
-                  return a finished audit. When you’re done, you can book a free
-                  15-minute call and bring the scorecard and the plan. The call
-                  is separate.
+                  return a finished audit.
                 </p>
               </details>
               <details className="audit-faq">
@@ -524,51 +470,114 @@ export function SalesPage() {
                 </summary>
                 <p>
                   It’s written for an established business: you’ve been at it a
-                  while, you have real customers, and the work has grown. If
-                  you’re still choosing a name, start with the free{" "}
-                  <a href="/name-it-right">Brand Name Worksheet</a>.
+                  while, you have real customers, and the work has grown.
                 </p>
               </details>
               <details className="audit-faq">
                 <summary>
-                  What if I want my money back?
+                  Can I get my money back?
                   <i aria-hidden="true" />
                 </summary>
                 <p>
-                  Email me at{" "}
-                  <a href={`mailto:${contact.email}`}>{contact.email}</a> within
-                  14 days and I’ll refund you.
+                  The workbook is on the next page the moment you pay, and a
+                  copy comes by email. You have the whole file right away, so
+                  the sale is final.
+                </p>
+              </details>
+              <details className="audit-faq">
+                <summary>
+                  Can I copy it or sell it?
+                  <i aria-hidden="true" />
+                </summary>
+                <p>
+                  The workbook is licensed to the business that buys it. You
+                  may fill it in and print it for people who work there. You
+                  may not copy, scan, post, email, or share it, and you may not
+                  sell, teach, sublicense, or use it as a product, workshop, or
+                  client deliverable you charge for. The tests, scorecard, and
+                  pages stay mine. All rights reserved.
                 </p>
               </details>
             </div>
           </div>
-        </section>
+        </div>
+          </li>
 
-        <section className="audit-final" aria-labelledby="final-title">
+          <li className="audit-step">
+            <span className="audit-step-mark" aria-hidden="true">
+              5
+            </span>
+            <section aria-labelledby="final-title">
+              <h2 id="final-title" className="lk-display">
+                <span>Build on</span>
+                <span className="lk-hl">
+                  the rock.
+                  <img className="lk-swoosh" src="/brand/brush-swoosh.svg" alt="" />
+                </span>
+              </h2>
+              <p className="audit-scripture">
+                “Anyone who listens to my teaching and follows it is wise, like a
+                person who builds a house on solid rock.”{" "}
+                <cite>Matthew 7:24 (NLT)</cite>
+              </p>
+              <p className="audit-lede">
+                Get the Audit. Give it an evening. Leave with three priorities and
+                a plan for the next 30 days.
+              </p>
+              <p className="audit-amount" id="price-title">
+                <span className="sr-only">Price </span>$27
+              </p>
+              <p className="audit-cad">CAD, once</p>
+              <ul className="audit-includes">
+                <li>The workbook. Fill it on screen, or print it for your team.</li>
+                <li>16 tests with examples and checklists.</li>
+                <li>Quick Scorecard, priority method, and 30-day plan.</li>
+                <li>Brand Brief and action-plan pages you can reuse.</li>
+              </ul>
+              <div>
+                <BuyButton>Get the Audit for $27</BuyButton>
+              </div>
+              <p className="audit-fine">
+                Secure checkout with Stripe. The download is on the next page,
+                and a copy arrives by email. Paying from outside Canada? Your
+                card converts it at checkout. The file is yours as soon as you
+                pay, so there are no refunds. Licensed for your business only:
+                no copying, sharing, resale, or commercial use.
+              </p>
+            </section>
+          </li>
+        </ol>
+        <section className="audit-else" aria-labelledby="else-title">
           <div className="lk-grid">
-            <h2 id="final-title" className="lk-display">
-              <span>Build on</span>
-              <span className="lk-hl">
-                the rock.
-                <img className="lk-swoosh" src="/brand/brush-swoosh.svg" alt="" />
-              </span>
+            <h2 id="else-title" className="lk-display">
+              If you need something else
             </h2>
-            <p className="audit-scripture">
-              “Anyone who listens to my teaching and follows it is wise, like a
-              person who builds a house on solid rock.”{" "}
-              <cite>Matthew 7:24 (NLT)</cite>
-            </p>
-            <p className="audit-lede">
-              Get the Audit. Give it an evening. Leave with three priorities and
-              a plan for the next 30 days.
-            </p>
-            <div id="final">
-              <BuyButton>Get the Audit for $27</BuyButton>
+            <div className="audit-prose">
+              <p>
+                Still choosing a name? Start with the free{" "}
+                <a href="/name-it-right">Brand Name Worksheet</a>.
+              </p>
+              <p>
+                If you already took the free{" "}
+                <a
+                  href="https://profuzionstudio.com/brand-clarity/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Brand Clarity Assessment
+                </a>
+                , use the Audit to go further on the low scores. The Audit
+                stands on its own either way.
+              </p>
+              <p>
+                When the workbook is finished, you can{" "}
+                <a href={contact.booking}>book a free 15-minute call</a> and
+                bring the scorecard. The call is separate from the $27.
+              </p>
             </div>
           </div>
         </section>
       </main>
-      <StickyBuy />
       <SiteFooter />
     </>
   );

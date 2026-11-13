@@ -3,12 +3,10 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
-import { BuyButton } from "@/components/audit/buy-button";
 import { contact } from "@/content/home";
 
 const links = [
   { href: "/#work", label: "Work" },
-  { href: "/selected-work", label: "Studies" },
   { href: "/#approach", label: "Approach" },
   { href: "/#about", label: "About" },
 ];
@@ -27,7 +25,6 @@ export function SiteHeader({ mode = "studio" }: { mode?: "studio" | "audit" }) {
   const [open, setOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [stuck, setStuck] = useState(false);
-  const [showBuy, setShowBuy] = useState(false);
   const resourcesRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -42,18 +39,6 @@ export function SiteHeader({ mode = "studio" }: { mode?: "studio" | "audit" }) {
     desktop.addEventListener("change", onChange);
     return () => desktop.removeEventListener("change", onChange);
   }, []);
-
-  useEffect(() => {
-    if (mode !== "audit") return;
-    const target = document.getElementById("buy");
-    if (!target) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setShowBuy(!entry.isIntersecting),
-      { threshold: 0.25 },
-    );
-    observer.observe(target);
-    return () => observer.disconnect();
-  }, [mode]);
 
   useEffect(() => {
     setResourcesOpen(false);
@@ -124,12 +109,19 @@ export function SiteHeader({ mode = "studio" }: { mode?: "studio" | "audit" }) {
   }, [open]);
 
   const resourceCurrent = resources.some((link) => isCurrent(pathname, link.href));
+  const showBooking = mode !== "audit";
 
   return (
     <header className={stuck || open ? "lk-header is-stuck" : "lk-header"}>
-      <a className="lk-wordmark" href="/#top">
+      <a className="lk-wordmark" href={mode === "audit" ? "#audit-title" : "/#top"}>
         <img src="/brand/lowell-profile.webp" alt="Lowell D. Klassen" />
       </a>
+      {mode === "audit" ? (
+        <a className="lk-header-back" href="/">
+          The studio
+        </a>
+      ) : (
+      <>
       <nav className="lk-nav" aria-label="Primary">
         {links.map((link) => (
           <a
@@ -198,15 +190,11 @@ export function SiteHeader({ mode = "studio" }: { mode?: "studio" | "audit" }) {
         </div>
       </nav>
       <p className="lk-since">Since 1999</p>
-      {mode === "audit" ? (
-        <div className={showBuy ? "audit-header-buy" : "audit-header-buy is-gated"}>
-          <BuyButton className="lk-header-cta">Get the Audit</BuyButton>
-        </div>
-      ) : (
+      {showBooking ? (
         <a className="lk-button lk-header-cta" href={contact.booking}>
           Book a call
         </a>
-      )}
+      ) : null}
       <button
         ref={buttonRef}
         type="button"
@@ -251,9 +239,7 @@ export function SiteHeader({ mode = "studio" }: { mode?: "studio" | "audit" }) {
               ))}
             </div>
           </nav>
-          {mode === "audit" ? (
-            <BuyButton>Get the Audit for $27</BuyButton>
-          ) : (
+          {showBooking ? (
             <a
               className="lk-button"
               href={contact.booking}
@@ -261,9 +247,11 @@ export function SiteHeader({ mode = "studio" }: { mode?: "studio" | "audit" }) {
             >
               Book a call
             </a>
-          )}
+          ) : null}
         </div>
       ) : null}
+      </>
+      )}
     </header>
   );
 }

@@ -28,7 +28,7 @@ const product = {
   "@type": "Product",
   name: "The Brand Clarity Audit",
   description:
-    "A 32-page self-guided workbook with 16 brand tests, a scorecard, a priority method, and a 30-day action plan for owners of established businesses.",
+    "A self-guided workbook with 16 brand tests, a scorecard, a priority method, and a 30-day action plan for owners of established businesses. Licensed for the buyer’s business only.",
   brand: { "@type": "Brand", name: "Lowell D. Klassen" },
   image: "/audit/cover.png",
   offers: {

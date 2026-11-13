@@ -53,8 +53,48 @@
   margin-top: 0;
 }
 
+.audit-hero-line {
+  margin: 1rem 0 0;
+  max-width: 28rem;
+  color: var(--lk-paper);
+  font-size: 1.12rem;
+  line-height: 1.45;
+}
+
 .audit-hero-buy {
-  margin-top: 1.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1.15rem;
+  margin-top: 1.35rem;
+}
+
+.audit-hero-price {
+  margin: 0;
+  color: var(--lk-accent);
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  line-height: 0.85;
+  letter-spacing: 0.01em;
+}
+
+.audit-hero-cad {
+  margin-left: 0.4rem;
+  color: var(--lk-paper);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  vertical-align: 0.55rem;
+}
+
+.audit-hero-buy .audit-checkout {
+  flex: 1 0 100%;
+  margin-top: 0.35rem;
+}
+
+.audit-hero-grid {
+  display: grid;
 }
 
 .audit-fine,
@@ -627,6 +667,7 @@
   padding-right: 1.5rem;
 }
 
+.audit-prose a,
 .audit-faq a,
 .audit-fine a {
   color: var(--lk-paper);
@@ -1039,23 +1080,32 @@
   }
 }
 
-.audit-pay {
-  position: fixed;
-  inset: 0;
-  z-index: 70;
-  display: grid;
-  justify-items: center;
-  align-items: start;
-  overflow: auto;
-  padding: 5.5rem 1rem 2rem;
-  background: rgba(12, 12, 12, 0.72);
+.audit-else {
+  padding: clamp(3.2rem, 7vw, 5.5rem) 0 clamp(4rem, 8vw, 6.5rem);
+  border-top: 1px solid var(--lk-line);
 }
 
-.audit-pay-panel {
-  width: min(100%, 28.5rem);
-  background: #161616;
+.audit-else h2 {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  max-width: 10ch;
+}
+
+.audit-else .audit-prose {
+  margin-top: 1.15rem;
+}
+
+.audit-checkout {
+  width: min(100%, 32rem);
+  margin-top: 1.25rem;
+  background: #fff;
   color: #f4f2ed;
   border: 1px solid rgba(244, 242, 237, 0.16);
+  scroll-margin-top: 5.5rem;
+}
+
+.audit-checkout iframe {
+  color-scheme: light;
+  background: #fff;
 }
 
 .audit-pay-bar {
@@ -1064,6 +1114,7 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 0.85rem 1rem 0.15rem;
+  background: #161616;
 }
 
 .audit-pay-bar p {
@@ -1087,5 +1138,109 @@
 
 .audit-pay-bar button:hover {
   color: #ffc82c;
+}
+
+.audit-flow {
+  display: grid;
+  gap: 0.8rem;
+  width: min(76rem, calc(100% - var(--lk-gutter) * 2));
+  margin: clamp(1rem, 3vw, 2rem) auto clamp(3.5rem, 8vw, 6rem);
+  padding: 0;
+  list-style: none;
+}
+
+.audit-step {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.9rem 1.15rem;
+  align-items: start;
+  margin: 0;
+  padding: clamp(1.15rem, 2.2vw, 1.7rem);
+  border-radius: 1.6rem;
+  background: #efece6;
+  color: #3c3c3c;
+}
+
+.audit-step-mark {
+  display: grid;
+  place-items: center;
+  width: 2.55rem;
+  height: 2.55rem;
+  margin-top: 0.15rem;
+  border-radius: 50%;
+  background: #8d5e3c;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 650;
+  line-height: 1;
+}
+
+.audit-step .lk-display,
+.audit-step .audit-name,
+.audit-step .audit-proof,
+.audit-step .audit-index h3,
+.audit-step .audit-route h3,
+.audit-step .audit-names,
+.audit-step .audit-hours span,
+.audit-step .audit-hours-quiet,
+.audit-step .audit-quote p,
+.audit-step .audit-price-lead,
+.audit-step .audit-cad,
+.audit-step .audit-faq summary,
+.audit-step .audit-fit li {
+  color: #1a1a1a;
+}
+
+.audit-step .audit-lede,
+.audit-step .audit-hero-line,
+.audit-step .audit-hero-cad,
+.audit-step .audit-prose,
+.audit-step .audit-prose p,
+.audit-step .audit-fine,
+.audit-step .audit-role,
+.audit-step .audit-when,
+.audit-step .audit-aside,
+.audit-step .audit-quote figcaption,
+.audit-step .audit-includes li,
+.audit-step .audit-scripture {
+  color: #4a4a4a;
+}
+
+.audit-step .audit-hero,
+.audit-step .audit-section,
+.audit-step .audit-band,
+.audit-step .audit-about,
+.audit-step .audit-final {
+  padding: 0;
+  background: transparent;
+}
+
+.audit-step .lk-grid {
+  width: auto;
+  padding-inline: 0;
+}
+
+.audit-step .audit-spread {
+  padding-inline: 0;
+}
+
+.audit-step h2 {
+  max-width: 16ch;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+}
+
+.audit-subhead {
+  margin: 1.6rem 0 0.7rem;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.audit-step .audit-pull,
+.audit-step .audit-faq a,
+.audit-step .audit-fine a {
+  color: #1a1a1a;
+}
+
+.audit-step .audit-amount {
+  margin-top: 1.2rem;
 }
 

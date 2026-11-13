@@ -43,10 +43,10 @@ export function Hero() {
             <a className="lk-button" href={contact.booking}>
               Book a call with Lowell
             </a>
-            <a className="lk-textlink" href="/selected-work">
-              Explore the case studies
-            </a>
           </div>
+          <p className="lk-audit-pointer">
+            <a href="/brand-clarity-audit">The Brand Clarity Audit is $27.</a>
+          </p>
         </div>
       </div>
     </section>

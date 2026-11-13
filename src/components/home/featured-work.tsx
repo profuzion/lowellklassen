@@ -46,9 +46,6 @@ export function FeaturedWork() {
         <p>
           Three recent jobs: the names, the marks, and the sites.
         </p>
-        <a className="lk-textlink lk-work-more" href="/selected-work">
-          Read the case studies
-        </a>
       </div>
       <div className="lk-projects">
         {projects.map((project) => (

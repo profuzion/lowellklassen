@@ -2,7 +2,7 @@
 
 import { useId } from "react";
 
-import { useCheckout } from "@/components/audit/checkout-provider";
+import { AuditCheckout, useCheckout } from "@/components/audit/checkout-provider";
 
 export function BuyButton({
   children,
@@ -13,8 +13,13 @@ export function BuyButton({
 }) {
   const reactId = useId();
   const statusId = `audit-status-${reactId}`;
-  const { busy, error, activeId, buy } = useCheckout();
+  const { busy, error, activeId, clientSecret, buy } = useCheckout();
   const message = activeId === reactId ? error : "";
+
+  if (clientSecret) {
+    if (activeId !== reactId) return null;
+    return <AuditCheckout />;
+  }
 
   return (
     <div className="audit-buy-wrap">

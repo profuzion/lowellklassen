@@ -11,11 +11,12 @@
   --lk-gap: clamp(14px, 1.67vw, 24px);
   --lk-header: 4.75rem;
   --font-display: "Glory Culture Alt", "Arial Narrow", Impact, sans-serif;
-  --font-body: "Soehne", Inter, "Segoe UI", sans-serif;
+  --font-body: "JUST Sans Variable", Inter, "Segoe UI", sans-serif;
   color: var(--lk-muted);
   background: var(--lk-ink);
   color-scheme: dark;
   font-family: var(--font-body);
+  font-weight: 500;
   font-size: 1.0625rem;
   line-height: 1.65;
   letter-spacing: -0.005em;
@@ -129,6 +130,16 @@
   height: 2.75rem;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.lk-header-back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-left: auto;
+  color: var(--lk-paper);
+  font-size: 0.95rem;
+  text-decoration: none;
 }
 
 .lk-since {
@@ -385,6 +396,17 @@
   align-items: center;
   gap: 0.85rem 1.4rem;
   margin-top: 1.6rem;
+}
+
+.lk-audit-pointer {
+  margin: 0.95rem 0 0;
+}
+
+.lk-audit-pointer a {
+  color: var(--lk-paper);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--lk-accent);
 }
 
 .lk-descriptor {

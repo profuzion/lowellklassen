@@ -5,8 +5,10 @@ import { loadStripe } from "@stripe/stripe-js";
 import {
   createContext,
   useContext,
+  useCallback,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
@@ -18,6 +20,8 @@ type CheckoutContextValue = {
   busy: boolean;
   error: string;
   activeId: string | null;
+  clientSecret: string | null;
+  close: () => void;
   buy: (id: string) => Promise<void>;
 };
 
@@ -35,25 +39,18 @@ export function CheckoutProvider({ children }: { children: ReactNode }) {
     return () => window.removeEventListener("pageshow", reset);
   }, []);
 
-  useEffect(() => {
-    if (!clientSecret) return;
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setClientSecret(null);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = previous;
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [clientSecret]);
+  const close = useCallback(() => {
+    setClientSecret(null);
+    setBusy(false);
+  }, []);
 
   const value = useMemo<CheckoutContextValue>(
     () => ({
       busy,
       error,
       activeId,
+      clientSecret,
+      close,
       buy: async (id: string) => {
         if (clientSecret) return;
         setActiveId(id);
@@ -86,34 +83,39 @@ export function CheckoutProvider({ children }: { children: ReactNode }) {
         }
       },
     }),
-    [activeId, busy, clientSecret, error],
+    [activeId, busy, clientSecret, close, error],
   );
 
+  return <CheckoutContext value={value}>{children}</CheckoutContext>;
+}
+
+export function AuditCheckout() {
+  const { clientSecret, close } = useCheckout();
+  const panelRef = useRef<HTMLDivElement>(null);
+  const options = useMemo(
+    () => (clientSecret ? { clientSecret } : null),
+    [clientSecret],
+  );
+
+  useEffect(() => {
+    if (!options) return;
+    panelRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [options]);
+
+  if (!options || !stripePromise) return null;
+
   return (
-    <CheckoutContext value={value}>
-      {children}
-      {clientSecret && stripePromise ? (
-        <div className="audit-pay" role="presentation" onMouseDown={() => setClientSecret(null)}>
-          <div
-            className="audit-pay-panel"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Pay for The Brand Clarity Audit"
-            onMouseDown={(event) => event.stopPropagation()}
-          >
-            <div className="audit-pay-bar">
-              <p>The Brand Clarity Audit</p>
-              <button type="button" onClick={() => setClientSecret(null)}>
-                Close
-              </button>
-            </div>
-            <EmbeddedCheckoutProvider stripe={stripePromise} options={{ clientSecret }}>
-              <EmbeddedCheckout />
-            </EmbeddedCheckoutProvider>
-          </div>
-        </div>
-      ) : null}
-    </CheckoutContext>
+    <div className="audit-checkout" ref={panelRef}>
+      <div className="audit-pay-bar">
+        <p>The Brand Clarity Audit</p>
+        <button type="button" onClick={close}>
+          Close
+        </button>
+      </div>
+      <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
+        <EmbeddedCheckout />
+      </EmbeddedCheckoutProvider>
+    </div>
   );
 }
 
