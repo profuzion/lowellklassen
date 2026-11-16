@@ -41,10 +41,16 @@ export async function POST(request: Request) {
   }
 
   const apiKey = process.env.KIT_API_KEY;
-  const formId = process.env.KIT_FORM_ID;
+  const configuredFormId = process.env.KIT_FORM_ID?.trim();
+  // The public Kit link uses a short id. The subscribe API needs the numeric form id
+  // for "Lowell Klassen - Lead Magnet - Name it Right".
+  const formId =
+    configuredFormId && /^\d+$/.test(configuredFormId)
+      ? configuredFormId
+      : "9816744";
   const tagId = process.env.KIT_TAG_ID;
-  if (!apiKey || !formId) {
-    console.error("KIT_API_KEY or KIT_FORM_ID is missing");
+  if (!apiKey) {
+    console.error("KIT_API_KEY is missing");
     return NextResponse.json(
       { error: "Sign-ups aren't connected yet." },
       { status: 500 },
