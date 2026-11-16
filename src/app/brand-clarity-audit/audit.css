@@ -1236,5 +1236,15 @@
   .audit-step .audit-desk-head {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
+
+  .audit-else h2 {
+    grid-column: 1 / 6;
+    max-width: none;
+  }
+
+  .audit-else .audit-prose {
+    grid-column: 6 / 13;
+    margin-top: 0.4rem;
+  }
 }
 
